@@ -5,6 +5,7 @@ const books = [
     id: 1,
     title: "A Thousand Splendid Suns",
     author: "Khaled Hosseini",
+    genre:" Historical Fiction",
     image: "Images/lotus.jpg",
     description: "I experienced the book and felt like I was moving through life with them, and it reduced me to tears. It was poignant and dolorous, it killed me softly but surely. I cried with Mariam, mourned with Laila, felt the joy for her and Tariq, the situations that Mariam and Aziza shared. I found solace during a difficult period in my life, and it shall live with me.",
     quotesImage: "Images/_A thousand splendid suns_ quotes.jpg"  
@@ -14,6 +15,7 @@ const books = [
     title: "Born A Crime",
     author: "Trevor Noah",
     image: "Images/Born A Crime - Trevor Noah.jpg",
+    Genre:"Memoir",
     description: "You want to read well written memoir of a brown skin boy and an insouciant mother? Welcome and have a book - it is Born A Crime. He narrated boyish mischief and the love of an African Mother in a hilarious way that is so heart warming and inspiring. I laughed and cried all the way to the end.",
     quotes: [  // ✅ Now it's an array
       "The richer you are, the more choices you have. That is the freedom of money.",
@@ -30,6 +32,7 @@ const books = [
     title: "Americanah",
     author: "Chimamanda Ngozi Adichie",
     image: "Images/Americanah_ A novel - Chimamanda Ngozi Adichie….jpg",  
+    Genre:"Contemporary Fiction",
     description: "Chimamanda Ngozi Adichie is an evocative writer of Modern African Literature. The story follows the life of a young girl Ifemelu to adulthood in realness. Chimamanda captures the metamorphosis of her interests, her love lives, the assimilation to American culture. She captures her monologues and the embarrassment that sits at the base of a spine. She captures the emancipation of an African woman. Finally the beginning is sometimes the end when she reunites with her first love Obinze in Nigeria.",
     quotes: [  // ✅ Array
       "The problem with stereotypes is not that they are untrue, it is that they are incomplete. They make one story the only story.",
@@ -44,8 +47,10 @@ const books = [
   {
     id: 4,
     title: "The Daily Laws",
-    author: "Robert Greene",  
+    author: "Robert Greene",
+    Genre:"Self-help",  
     image: "Images/The Daily Laws, Robert Greene - Daily Wisdom and Guidance.jpg", 
+
     description: "The Core Idea: The world is not what it appears. People don't wish you well. They wish you to obey their commands and think the way they think. The goal of The Daily Laws is to help you see behind the masks. Spot what really powers others – greed, envy, desire for power – and also identify what moves you. Eventually, you'll realize that you are flawed – like everyone else. But instead of moaning, by using the suggestions in the book, you will overcome your own negative traits and figure out what you should do with your life.",
     quotes: [  // ✅ Array
       "January – Your Life's Task: Focuses on discovering your unique calling and planting the seeds for mastery.",

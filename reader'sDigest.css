@@ -210,3 +210,41 @@ body {
 .cancel-btn:hover {
     background: #bbb;
 }
+/* Genre Badge */
+.genre-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+}
+
+/* Different colors for different genres (optional) */
+.book-container[data-book-id] .genre-badge {
+    
+}
+/* Genre Filter Dropdown */
+.genre-filter {
+    height: 40px;
+    padding: 0 15px;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    outline: none;
+    font-size: 14px;
+    background: white;
+    cursor: pointer;
+    min-width: 150px;
+}
+
+.genre-filter:focus {
+    border-color: #4CAF50;
+    box-shadow: 0 0 8px rgba(76, 175, 80, 0.3);
+}
+
+/* You can add specific colors later based on genre */

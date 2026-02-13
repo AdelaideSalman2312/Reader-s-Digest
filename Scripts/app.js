@@ -1,3 +1,59 @@
+
+//  ADD THE COLOR FUNCTION HERE (before createBookCard uses it)//
+function getGenreColor(genre) {
+    const colors = {
+        'Fiction': 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+        'Non-Fiction': 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
+        'Memoir': 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
+        'Self-Help': 'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)',
+        'Biography': 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)',
+        'History': 'linear-gradient(135deg, #30cfd0 0%, #330867 100%)',
+        'Science': 'linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)',
+        'Poetry': 'linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%)',
+    };
+    
+    return colors[genre] || 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+}
+
+// Function to create a single book card
+function createBookCard(book) {
+  let quotesHTML = '';
+  
+  if (book.quotesImage) {
+    quotesHTML = `<img class="quotes-image" src="${book.quotesImage}" alt="${book.title} quotes">`;
+  } else if (book.quotes && book.quotes.length > 0) {
+    quotesHTML = book.quotes
+      .map(quote => `<p>"${quote}"</p>`)
+      .join('');
+  }
+
+  // ✅ USE THE FUNCTION HERE
+  const genreColor = getGenreColor(book.genre);
+
+  return `
+    <div class="book-container" data-book-id="${book.id}">
+      <img class="profile-image" src="${book.image}" alt="${book.title}">
+      
+      <!-- ✅ APPLY THE COLOR HERE -->
+      <span class="genre-badge" style="background: ${genreColor};">${book.genre || 'Uncategorized'}</span>
+      
+      <h1>${book.title}</h1>
+      <p class="book-description">${book.description}</p>
+      <p class="book_author">${book.author.toUpperCase()}</p>
+      ${quotesHTML ? `<div class="quotes">${quotesHTML}</div>` : ''}
+      
+      <div class="book-actions">
+        <button class="edit-btn" data-book-id="${book.id}">Edit</button>
+        <button class="delete-btn" data-book-id="${book.id}">Delete</button>
+      </div>
+    </div>
+  `;
+}
+
+// Rest of your code continues...
+function renderBooks(booksToRender = books) {
+  // ...
+}
 // Function to create a single book card
 function createBookCard(book) {
   let quotesHTML = '';
@@ -72,14 +128,11 @@ function searchBooks(searchTerm) {
   console.log(`Search: "${searchTerm}" - Found ${filtered.length} books`);
 }
 
-// ✅ Initial render
+
 renderBooks();
 
-// ✅ Connect search bar to searchBooks function
-const searchBar = document.querySelector('.search-bar');
-searchBar.addEventListener('input', (e) => {
-  searchBooks(e.target.value);
-});
+
+
 function createBookCard(book) {
   let quotesHTML = '';
   
@@ -107,9 +160,9 @@ function createBookCard(book) {
     </div>
   `;
 }
-// ==========================================
+
 // MODAL FUNCTIONS
-// ==========================================
+// 
 
 const modal = document.getElementById('book-modal');
 const bookForm = document.getElementById('book-form');
@@ -145,9 +198,9 @@ function closeModal() {
   bookForm.reset();
 }
 
-// ==========================================
+
 // ADD / EDIT BOOK
-// ==========================================
+// 
 
 bookForm.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -162,6 +215,7 @@ bookForm.addEventListener('submit', (e) => {
   const bookData = {
     title: document.getElementById('book-title').value,
     author: document.getElementById('book-author').value,
+    genre:document.getElementById('book-genre').value,
     image: document.getElementById('book-image').value,
     description: document.getElementById('book-description').value,
     quotes: quotesArray.length > 0 ? quotesArray : undefined
@@ -187,9 +241,9 @@ bookForm.addEventListener('submit', (e) => {
   closeModal();
 });
 
-// ==========================================
+
 // DELETE BOOK
-// ==========================================
+// 
 
 function deleteBook(bookId) {
   if (!confirm('Are you sure you want to delete this book?')) return;
@@ -202,9 +256,9 @@ function deleteBook(bookId) {
   renderBooks();
 }
 
-// ==========================================
+
 // LOCAL STORAGE
-// ==========================================
+// 
 
 function saveToLocalStorage() {
   localStorage.setItem('readerDigestBooks', JSON.stringify(books));
@@ -221,9 +275,9 @@ function loadFromLocalStorage() {
   }
 }
 
-// ==========================================
+
 // EVENT LISTENERS
-// ==========================================
+// 
 
 // Add book button
 document.querySelector('.add-book-btn').addEventListener('click', openAddModal);
@@ -276,13 +330,102 @@ function attachBookActionListeners() {
     });
   });
 }
+// Get unique genres from books
+function getUniqueGenres() {
+    const genres = books
+        .map(book => book.genre)
+        .filter(genre => genre) // Remove undefined/null
+        .filter((genre, index, self) => self.indexOf(genre) === index) // Remove duplicates
+        .sort(); // Alphabetical order
+    
+    return genres;
+}
 
-// ==========================================
-// INITIALIZATION
-// ==========================================
+// Populate genre filter dropdown
+function populateGenreFilter() {
+    const genreFilter = document.getElementById('genre-filter');
+    const genres = getUniqueGenres();
+    
+    // Clear existing options (except "All Genres")
+    genreFilter.innerHTML = '<option value="all">All Genres</option>';
+    
+    // Add genre options
+    genres.forEach(genre => {
+        const option = document.createElement('option');
+        option.value = genre;
+        option.textContent = genre;
+        genreFilter.appendChild(option);
+    });
+    
+    console.log('Genre filter populated with:', genres);
+}
+// Track current filter state
+let currentGenreFilter = 'all';
+let currentSearchTerm = '';
 
-// Load from localStorage on page load
+// Updated search function that respects genre filter
+function searchBooks(searchTerm) {
+    currentSearchTerm = searchTerm;
+    applyFilters();
+}
+
+// Filter by genre
+function filterByGenre(genre) {
+    currentGenreFilter = genre;
+    applyFilters();
+}
+
+// Apply both search and genre filters
+function applyFilters() {
+    let filtered = books;
+    
+    // Apply genre filter
+    if (currentGenreFilter !== 'all') {
+        filtered = filtered.filter(book => book.genre === currentGenreFilter);
+    }
+    
+    // Apply search filter
+    if (currentSearchTerm.trim()) {
+        const searchLower = currentSearchTerm.toLowerCase();
+        filtered = filtered.filter(book => {
+            const titleMatch = book.title.toLowerCase().includes(searchLower);
+            const authorMatch = book.author.toLowerCase().includes(searchLower);
+            const descriptionMatch = book.description.toLowerCase().includes(searchLower);
+            
+            let quotesMatch = false;
+            if (book.quotes && book.quotes.length > 0) {
+                quotesMatch = book.quotes.some(quote => 
+                    quote.toLowerCase().includes(searchLower)
+                );
+            }
+            
+            return titleMatch || authorMatch || descriptionMatch || quotesMatch;
+        });
+    }
+    
+    renderBooks(filtered);
+    console.log(`Filters applied - Genre: ${currentGenreFilter}, Search: "${currentSearchTerm}", Results: ${filtered.length}`);
+}
+// Genre filter listener
+const genreFilter = document.getElementById('genre-filter');
+genreFilter.addEventListener('change', (e) => {
+    filterByGenre(e.target.value);
+});
+
+
+
+
+// Update search bar listener (replace the old one)//
+
+const searchBar = document.querySelector('.search-bar');
+searchBar.addEventListener('input', (e) => {
+    searchBooks(e.target.value);
+});
+
+//INITIALIZE FROM PAGE LOAD//
 loadFromLocalStorage();
-
-// Initial render
+populateGenreFilter();
 renderBooks();
+
+
+

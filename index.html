@@ -9,13 +9,19 @@
 <body>
     <div class="top-section">
         <input type="text" class="search-bar" placeholder="Search by title, author, or keywords...">
-    </div>
+   
+    <select id="genre-filter" class="genre-filter">
+        <option value="all">All Genres</option>
+        <!-- These will be populated dynamically -->
+    </select>
+    <button class="add-book-btn">+ Add New Book</button>
     
+    </div> 
+</div>
    
     <div class="image-row"></div>
-    <div class="top-section">
-    <input type="text" class="search-bar" placeholder="Search by title, author, or keywords...">
-    <button class="add-book-btn">+ Add New Book</button>
+    
+    
 </div>
 
 <!-- Modal for adding books -->
@@ -31,6 +37,19 @@
             <label for="book-author">Author:</label>
             <input type="text" id="book-author" required>
             
+             <label for="book-genre">Genre:</label>
+    <select id="book-genre" required>
+        <option value="">Select a genre</option>
+        <option value="Fiction">Fiction</option>
+        <option value="Non-Fiction">Non-Fiction</option>
+        <option value="Memoir">Memoir</option>
+        <option value="Self-Help">Self-Help</option>
+        <option value="Biography">Biography</option>
+        <option value="History">History</option>
+        <option value="Science">Science</option>
+        <option value="Poetry">Poetry</option>
+        <option value="Other">Other</option>
+    </select>
             <label for="book-image">Image Path:</label>
             <input type="text" id="book-image" placeholder="Images/book-cover.jpg" required>
             
