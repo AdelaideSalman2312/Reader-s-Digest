@@ -1,209 +1,56 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head> 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reader's Digest</title>
-    
-    <style>
-        body {
-            background-image: url("1.jpg");
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            margin: 0;
-            padding: 20px;
-            font-family: Arial, sans-serif;
-        }
-
-        .top-section {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 30px;
-        }
-
-        .search-bar {
-            width: 100%;
-            max-width: 1600px;
-            height: 40px;
-            padding: 0 15px;
-            border: 1px solid #ccc;
-            border-radius: 25px;
-            outline: none;
-            font-size: 14px;
-        }
-
-        .image-row {
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            gap: 20px;
-            flex-wrap: wrap;
-            padding: 0 20px;
-        }
-
-        .book-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            max-width: 500px;
-            padding: 30px;
-            background: #fff;
-            border-radius: 12px;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
-            text-align: center;
-        }
-
-        .profile-image {
-            width: 165px;
-            height: 165px;
-            border-radius: 50%;
-            border: 2px solid #4CAF50;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            object-fit: cover;
-            margin-bottom: 20px;
-        }
-
-        .book-container h1 {
-            margin: 10px 0;
-            font-size: 24px;
-            color: #333;
-        }
-
-        .book-description {
-            line-height: 1.6;
-            color: #555;
-            margin: 15px 0;
-        }
-
-        .book_author {
-            font-weight: bold;
-            color: #777;
-            margin-top: 15px;
-            font-size: 14px;
-            letter-spacing: 1px;
-        }
-
-        .quotes-image {
-            width: 100%;
-            height: auto;
-            margin: 20px 0 0 0;
-            border-radius: 8px;
-        }
-
-        .quotes {
-            margin-top: 20px;
-            text-align: left;
-            font-style: italic;
-            color: #666;
-            line-height: 1.8;
-        }
-    </style>
+    <link rel="stylesheet" href="reader'sDigest.css">
 </head>
 <body>
     <div class="top-section">
-        <input type="text" class="search-bar" placeholder="Search...">
+        <input type="text" class="search-bar" placeholder="Search by title, author, or keywords...">
     </div>
     
-    <!-- ✅ ALL book containers go inside this ONE image-row -->
-    <div class="image-row"> 
-        
-        <!-- Book 1: A Thousand Splendid Suns -->
-        <div class="book-container">
-            <img class="profile-image" src="Images/lotus.jpg" alt="A Thousand Splendid Suns">
-            <h1>A Thousand Splendid Suns</h1>
-            <p class="book-description">
-                I experienced the book and felt like I was moving through life with them, and it reduced me to tears. It was poignant and dolorous, it killed me softly but surely. I cried with Mariam, mourned with Laila, felt the joy for her and Tariq, the situations that Mariam and Aziza shared. I found solace during a difficult period in my life, and it shall live with me.
-            </p>
-            <p class="book_author">KHALED HOSSEINI</p>
-            <div class="quotes">
-                <img class="quotes-image" src="Images/_A thousand splendid suns_ quotes.jpg">
-            </div>
-        </div>
-    
-        <!-- Book 2: Born A Crime -->
-        <div class="book-container">
-            <img class="profile-image" src="Images/Born A Crime - Trevor Noah.jpg" alt="Born A Crime">
-            <h1>Born A Crime</h1>
-            <p class="book-description">
-                You want to read well written memoir of a brown skin boy and an insouciant mother? Welcome and have a book - it is "Born A Crime". He narrated boyish mischief and the love of an African Mother in a hilarious way that is so heart warming and inspiring. I laughed and cried all the way to the end.
-            </p>
-            <p class="book_author">TREVOR NOAH</p>
-            <div class="quotes">
-                <p>"The richer you are, the more choices you have. That is the freedom of money."</p>
-                <p>"Love is a creative act. When you love someone, you create a new world for them."</p>
-                <p>"We tell people to follow their dreams, but you can only dream of what you can imagine, and depending on where you come from, your imagination can be quite limited."</p>
-                <p>
-                    "Trevor.remember a man is not determined by how much he earns.You can still be a man of the house and earn leass than your woman.Being a man is not what you have , it's who you are.Being more of a man doesn't mean you woman has to be less than you."
-                </p>
-                <p>
-                    "People always lecture the poor."Take responsibilty for yourself!"Make something for yourself!"But with what raw materials are the poor to make something of themselves?People love to say,"Give a man a fish and he'll eat for a day.Teach a man to fish,and he'll eatfor a lifetime."And it would be nice if you gave him a fishing rod.""That's the part of the analogy that's missing."
+   
+    <div class="image-row"></div>
+    <div class="top-section">
+    <input type="text" class="search-bar" placeholder="Search by title, author, or keywords...">
+    <button class="add-book-btn">+ Add New Book</button>
+</div>
 
-                </p>
-            </div>
-        </div>
-
-        <!-- Book 3: Americanah -->
-        <div class="book-container">
-            <img class="profile-image" src="Images/Americanah_ A novel - Chimamanda Ngozi Adichie….jpg" alt="Americanah">
-            <h1>Americanah</h1>
-            <p class="book-description">
-                Chimamanda Ngozi Adichie is an evocative writer of Modern African Literature. The story follows the life of a young girl Ifemelu to adulthood in realness. Chimamanda captures the metamorphosis of her interests, her love lives, the assimilation to American culture. She captures her monologues and the embarrassment that sits at the base of a spine. She captures the emancipation of an African woman. Finally the beginning is sometimes the end when she reunites with her first love Obinze in Nigeria.
-            </p>
-            <p class="book_author">CHIMAMANDA NGOZI ADICHIE</p>
-            <div class="quotes">
-                <p>"The problem with stereotypes is not that they are untrue, it is that they are incomplete. They make one story the only story."</p>
-                <p>"This was love: A string of coincidences that gathered significance and became miracles."</p>
-                <p> Why did people say that love was blind?It was not blind. It saw and it chose. It saw and it made a decision. It saw and it said,"I want this one."Love was not blind. It was sighted and it chose wrong. 
-</p>
-<p>Why did people ask "What is it about?"
-              as if a novel to be about only one thing?A novel was about everything. It was about the world and the human condition and the human heart and the human soul. It was about love and loss and friendship and betrayal and family.</p>
-              <p>"If you dont understand, ask questions.if you are uncomfortable about asking questions , say you are uncomfortable about asking questions and then ask anyway.It is always easy to tell when a question is coming from a good place.Then listen some more.Sometimes people just want to feel heard.Here's to possibilities of friendship and connection and understanding."
-</p>
-<p>"But she had not had a bold epiphany and there was no cause;it was simply that layer after layer of discontent had settled in her , and formed a mass that now propelled her.She did not tell him this , because it would hurt him to know that she had felt like this for a while, that her relationship with him was like being content in a house but always sitting by the window looking out"
-</p>
-<p>"Each memory stunned her.Each brought a sense of unassailabe loss , a great burden hurtling towards her and she wished she could duck , lower herself so that it would bypass her,so tha she would save herself.
-              This was what novelists meant by suffering.She had often thought it was a little silly, the idea of suffering for love , but now she understood" 
-
-
-</p>
-            </div>
-        </div>
- <div class="book-container"> <!-- ✅ Fixed: removed space, now it's one class -->
-            <img class="profile-image" src="Images/The Daily Laws, Robert Greene - Daily Wisdom and Guidance.jpg" alt="The Daily Laws">
+<!-- Modal for adding books -->
+<div class="modal-overlay" id="book-modal">
+    <div class="modal-content">
+        <h2 id="modal-title">Add New Book</h2>
+        <form id="book-form">
+            <input type="hidden" id="book-id">
             
-            <h1>The Daily Laws
-            </h1>
+            <label for="book-title">Book Title:</label>
+            <input type="text" id="book-title" required>
             
-            <p class="book-description">
-               The Core Idea:
-The world is not what it appears. People, don’t wish you well. They wish you to obey their commands and think the way they think. The goal of The Daily Laws is to help you see behind the masks. Spot what really powers others – greed, envy, desire for power – and also identify what moves you. Eventually, you’ll realize that you are flawed – like everyone else. But instead of moaning, by using the suggestions in the book, you will overcome your own negative traits and figure out what you should do with your life.
-            </p>
+            <label for="book-author">Author:</label>
+            <input type="text" id="book-author" required>
             
-            <p class="book_author">
-                ROBERT GREENE
-            </p>
-            <div class="quotes">
-                
-<p>January – Your Life's Task: Focuses on discovering your unique calling and planting the seeds for mastery.</p>
-<p>February – The Ideal Apprenticeship: Emphasizes deep learning, humility, and transforming yourself through rigorous training.</p>
-<p>March – The Master at Work: Focuses on activating your skills, honing your craft, and attaining true proficiency.</p>
-<p>April – The Perfect Courtier: Explores social intelligence, the game of power, and navigating complex hierarchies.</p>
-<p>May – The Supposed Nonplayers of Power: Teaches how to recognize toxic types and subtle manipulation strategies used by those who claim to avoid power games.</p>
-<p>June – The Divine Craft: Centers on mastering the arts of indirection, manipulation, and creative thinking.</p>
-<p>July – The Seductive Character: Borrowing from The Art of Seduction, this month focuses on penetrating hearts and minds through psychological charm.</p>
-<p>August – The Master Persuader: Guidance on softening resistance, storytelling, and the art of persuasion.</p>
-<p>September – The Grand Strategist: Strategies for rising out of "tactical hell" to focus on long-term objectives and high-level strategy.</p>
-<p>October – The Emotional Self: Focuses on understanding human nature and coming to terms with our "dark side" or Shadow.</p>
-<p>November – The Rational Human: Encourages realizing your higher self throughrationality and emotional self-control.</p>
-<p>December – The Cosmic Sublime: Expands the mind toward existential musings, mortality, and the "infinite" to create a sense of urgency. </p>
-
-
-    
-        </div>
+            <label for="book-image">Image Path:</label>
+            <input type="text" id="book-image" placeholder="Images/book-cover.jpg" required>
+            
+            <label for="book-description">Description:</label>
+            <textarea id="book-description" rows="5" required></textarea>
+            
+            <label for="book-quotes">Quotes (one per line, optional):</label>
+            <textarea id="book-quotes" rows="5" placeholder="Quote 1&#10;Quote 2&#10;Quote 3"></textarea>
+            
+            <div class="modal-buttons">
+                <button type="submit" class="submit-btn">Save Book</button>
+                <button type="button" class="cancel-btn">Cancel</button>
+            </div>
+        </form>
     </div>
+</div>
 
-    </div> 
-   <script src="books.js"></script> 
+<div class="image-row"></div>
+   
+    <script src="Data/books.js"></script>
+    <script src="Scripts/app.js"></script>
 </body>
 </html>
