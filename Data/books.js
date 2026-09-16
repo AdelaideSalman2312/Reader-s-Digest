@@ -5,7 +5,7 @@ const books = [
     id: 1,
     title: "A Thousand Splendid Suns",
     author: "Khaled Hosseini",
-    genre:" Historical Fiction",
+    genre:"Fiction",
     image: "Images/lotus.jpg",
     description: "I experienced the book and felt like I was moving through life with them, and it reduced me to tears. It was poignant and dolorous, it killed me softly but surely. I cried with Mariam, mourned with Laila, felt the joy for her and Tariq, the situations that Mariam and Aziza shared. I found solace during a difficult period in my life, and it shall live with me.",
     quotesImage: "Images/_A thousand splendid suns_ quotes.jpg"  
@@ -32,7 +32,7 @@ const books = [
     title: "Americanah",
     author: "Chimamanda Ngozi Adichie",
     image: "Images/Americanah_ A novel - Chimamanda Ngozi Adichie….jpg",  
-    Genre:"Contemporary Fiction",
+    Genre:"Fiction",
     description: "Chimamanda Ngozi Adichie is an evocative writer of Modern African Literature. The story follows the life of a young girl Ifemelu to adulthood in realness. Chimamanda captures the metamorphosis of her interests, her love lives, the assimilation to American culture. She captures her monologues and the embarrassment that sits at the base of a spine. She captures the emancipation of an African woman. Finally the beginning is sometimes the end when she reunites with her first love Obinze in Nigeria.",
     quotes: [  // ✅ Array
       "The problem with stereotypes is not that they are untrue, it is that they are incomplete. They make one story the only story.",
@@ -76,3 +76,4 @@ console.log('Books array:', books);
 books.forEach(book => {
   console.log(`Book: ${book.title}, Image: ${book.image}`);
 });
+console.table(books.map(b => ({ id: b.id, title: b.title, genre: b.genre })));

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reader's Digest</title>
+  
+  <!-- ✅ External CSS -->
+  <link rel="stylesheet" href="reader'sDigest.css">
+</head>
+<body>
+  <!-- ✅ Top Section -->
+  <div class="top-section">
+    <input type="text" class="search-bar" placeholder="Search by title, author, or keywords...">
+
+    <select id="genre-filter" class="genre-filter">
+      <option value="all">All Genres</option>
+      <!-- Populated dynamically -->
+    </select>
+
+    <button class="add-book-btn">+ Add New Book</button>
+    
+  </div>
+
+  <!-- ✅ Book Display Row -->
+  <div class="image-row"></div>
+
+  <!-- ✅ Modal for Adding Books -->
+  <div class="modal-overlay" id="book-modal">
+    <div class="modal-content">
+      <h2 id="modal-title">Add New Book</h2>
+      <form id="book-form">
+        <input type="hidden" id="book-id">
+
+        <label for="book-title">Book Title:</label>
+        <input type="text" id="book-title" required>
+
+        <label for="book-author">Author:</label>
+        <input type="text" id="book-author" required>
+
+        <label for="book-genre">Genre:</label>
+        <select id="book-genre" required>
+          <option value="">Select a genre</option>
+          <option value="Fiction">Fiction</option>
+          <option value="Non-Fiction">Non-Fiction</option>
+          <option value="Memoir">Memoir</option>
+          <option value="Self-Help">Self-Help</option>
+          <option value="Biography">Biography</option>
+          <option value="History">History</option>
+          <option value="Science">Science</option>
+          <option value="Poetry">Poetry</option>
+          <option value="Other">Other</option>
+        </select>
+
+        <label for="book-image">Image Path:</label>
+        <input type="text" id="book-image" placeholder="Images/book-cover.jpg" required>
+
+        <label for="book-description">Description:</label>
+        <textarea id="book-description" rows="5" required></textarea>
+
+        <label for="book-quotes">Quotes (one per line, optional):</label>
+        <textarea id="book-quotes" rows="5" placeholder="Quote 1&#10;Quote 2&#10;Quote 3"></textarea>
+
+        <div class="modal-buttons">
+          <button type="submit" class="submit-btn">Save Book</button>
+          <button type="button" class="cancel-btn">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <script>
+    document.addEventListener("DOMContentLoaded",function(){
+        document.querySelector(".image-row").addEventListener("click",function(){
+            window.location.href="Login.html";
+        });
+    })
+  </script>
+
+  <!-- ✅ External JavaScript -->
+  <script src="Data/books.js"></script>
+  <script src="Scripts/app.js"></script>
+</body>
+</html>
